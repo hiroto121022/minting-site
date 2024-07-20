@@ -86,11 +86,15 @@ const BalanceComponent = ({ address }: { address: string }) => {
 			{isLoading ? (
 				<p>Loading balance...</p>
 			) : (
-				<p>Balance: {data?.toString()}</p>
+				<>
+					<p>Balance: {data?.toString()}</p>
+					{data && data > 0n ? (
+						<p>購入しています</p>
+					) : (
+						<p>購入していません</p>
+					)}
+				</>
 			)}
-			{data && data > 0n ? (
-				<p>購入しています</p>
-			) : null}
 		</div>
 	);
 }
